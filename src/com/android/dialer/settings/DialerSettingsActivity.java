@@ -98,6 +98,12 @@ public class DialerSettingsActivity extends AppCompatPreferenceActivity {
             target.add(speedDialSettingsHeader);
         }
 
+        final Header lookupSettingsHeader = new Header();
+        lookupSettingsHeader.titleRes = R.string.lookup_settings_label;
+        lookupSettingsHeader.summaryRes = R.string.lookup_settings_description;
+        lookupSettingsHeader.fragment = LookupSettingsFragment.class.getName();
+        target.add(lookupSettingsHeader);
+
         TelephonyManager telephonyManager =
                 (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
