@@ -1174,7 +1174,6 @@ public class CallCardPresenter extends Presenter<CallCardPresenter.CallCardUi>
         ui.setEndCallButtonEnabled(!isFullscreenMode &&
                 shouldShowEndCallButton(mPrimary, callState),
                 callState != Call.State.INCOMING /* animate */);
-        ui.showVbButton(!isFullscreenMode);
         maybeShowManageConferenceCallButton();
     }
 
@@ -1327,6 +1326,5 @@ public class CallCardPresenter extends Presenter<CallCardPresenter.CallCardUi>
         void animateForNewOutgoingCall();
         void sendAccessibilityAnnouncement();
         void showNoteSentToast();
-        void showVbButton(boolean show);
     }
 }

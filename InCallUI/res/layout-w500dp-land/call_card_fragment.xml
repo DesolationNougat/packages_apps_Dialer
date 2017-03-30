@@ -113,16 +113,6 @@
             android:layout_alignParentBottom="true"/>
     </LinearLayout>
 
-    <!-- Volume boost and Volume enhancements in-call UI -->
-    <ImageButton android:id="@+id/volumeBoost"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_toEndOf="@id/primary_call_info_container"
-        android:layout_below="@id/manage_conference_call"
-        android:visibility="gone"
-        android:soundEffectsEnabled="false"
-        android:background="@drawable/vb_normal"/>
-
     <!-- Progress spinner, useful for indicating pending operations such as upgrade to video. -->
     <FrameLayout
         android:id="@+id/progressSpinner"
