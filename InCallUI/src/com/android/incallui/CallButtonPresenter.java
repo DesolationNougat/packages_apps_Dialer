@@ -404,6 +404,7 @@ public class CallButtonPresenter extends Presenter<CallButtonPresenter.CallButto
             mCall.getVideoSettings().setCameraDir(cameraDir);
             videoCall.setCamera(cameraId);
             videoCall.requestCameraCapabilities();
+            InCallZoomController.getInstance().onCameraEnabled(cameraId);
         }
     }
 
@@ -537,9 +538,9 @@ public class CallButtonPresenter extends Presenter<CallButtonPresenter.CallButto
 
         final boolean showMute = call.can(android.telecom.Call.Details.CAPABILITY_MUTE);
         int callTransferCapabilities = call.isEmergencyCall()? 0 : call.getTransferCapabilities();
-        boolean showAddParticipant = call.can(CAPABILITY_ADD_PARTICIPANT);
-        if (ui.getContext().getResources().getBoolean(
-            R.bool.add_participant_only_in_conference)) {
+        boolean showAddParticipant = call.can(CAPABILITY_ADD_PARTICIPANT)
+                && UserManagerCompat.isUserUnlocked(ui.getContext());
+        if (QtiCallUtils.shallAddParticipantInConference(ui.getContext())) {
             showAddParticipant = showAddParticipant&&(call.isConferenceCall());
         }
 
